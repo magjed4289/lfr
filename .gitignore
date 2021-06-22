@@ -38,7 +38,7 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
+node_modules
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -102,3 +102,27 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Idea dir
+.idea
+
+#Cypress
+*.aes
+*.bak
+*.orig
+cypress/screenshots
+cypress/videos
+cypress/logs
+cypress/fixtures/profile.json
+cypress/fixtures/users.json
+cypress/cucumber-json
+cypress/json-results
+cypress/results
+cypress/integration/examples
+.history
+cypress/cucumber-jsonall.cucumber.json
+cypress.env.json
+.npmrc
+reports/
+jira_report_config.json
+cypress/config/local.json

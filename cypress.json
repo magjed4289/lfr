@@ -1,0 +1,16 @@
+{
+  "env": {
+    "environment": "int",
+    "TAGS": "not @excluded"
+  },
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  },
+  "testFiles": "*/.feature",
+  "screenshotsFolder": "reports/screenshots",
+  "videosFolder": "reports/videos",
+  "video": false,
+  "chromeWebSecurity": false,
+  "scrollBehavior": "center"
+}
