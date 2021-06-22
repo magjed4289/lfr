@@ -1,5 +1,65 @@
 {
+  "name": "lifer_forms_acceptance",
+  "version": "0.0.1",
+  "description": "Repository for Liferay Forms acceptance tests in Cypress",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "env-cmd --silent cypress open",
+    "clean": "rimraf reports",
+    "report:build": "node utils/buildReport.js",
+    "postreport:build": "cucumber-json-merge -d reports/cucumber-preprocessor-jsons -o reports/cucumber.json",
+    "report:upload": "node reportJira.js",
+    "lint:js": "eslint .",
+    "lint:js:fix": "npm run lint:js -- --fix",
+    "lint:gherkin": "gherkin-lint .",
+    "pretest": "rimraf reports",
+    "test": "env-cmd --silent cypress-tags run -b chrome --headed",
+    "test:en": "npm test -- --env TAGS=@en"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/magjed4289/lfr/tree/development"
+  },
+  "bugs": {
+    "url": "https://github.com/magjed4289/lfr/tree/development/-/issues"
+  },
+  "keywords": [
+    "cypress",
+    "cucumber",
+    "testing"
+  ],
+  "author": "magjed4289",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "cucumber-json-merge": "0.0.7",
+    "env-cmd": "^10.1.0",
+    "multiple-cucumber-html-reporter": "^1.18.0",
+    "node-fetch": "^2.6.1",
+    "nodejs-base64": "^1.0.3",
+    "rimraf": "^3.0.2",
+    "yargs": "^16.2.0"
+  },
   "devDependencies": {
-    "cypress": "^7.5.0"
+    "@babel/core": "^7.13.14",
+    "@babel/eslint-parser": "^7.13.14",
+    "@babel/plugin-proposal-private-methods": "^7.13.0",
+    "@babel/preset-env": "^7.4.5",
+    "axios": "^0.21.1",
+    "babel-eslint": "^10.1.0",
+    "cypress": "^6.3.0",
+    "cypress-cucumber-preprocessor": "^4.0.0",
+    "eslint": "^7.23.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "gherkin-lint": "^4.1.3"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "reports/cucumber-preprocessor-jsons",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   }
 }

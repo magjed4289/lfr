@@ -1,6 +1,6 @@
 {
   "env": {
-    "environment": "int",
+    "environment": "qa",
     "TAGS": "not @excluded"
   },
   "retries": {
