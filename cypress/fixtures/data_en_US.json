@@ -1,0 +1,8 @@
+{
+  "name": "Laura",
+  "dayOfBirth": "2",
+  "monthOfBirth": "8",
+  "yearOfBirth": "2014",
+  "body": "Fixtures are a great way to mock data for responses to routes",
+  "successMsg": "Success:Your request completed successfully."
+}

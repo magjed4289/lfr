@@ -1,7 +1,7 @@
 {
-  "name": "lifer_forms_acceptance",
+  "name": "liferay_forms_acceptance",
   "version": "0.0.1",
-  "description": "Repository for Liferay Forms acceptance tests in Cypress",
+  "description": "Repository for Liferay Forms tests in Cypress",
   "main": "index.js",
   "scripts": {
     "cypress:open": "env-cmd --silent cypress open",
@@ -14,7 +14,8 @@
     "lint:gherkin": "gherkin-lint .",
     "pretest": "rimraf reports",
     "test": "env-cmd --silent cypress-tags run -b chrome --headed",
-    "test:en": "npm test -- --env TAGS=@en"
+    "test:en": "npm test -- --env language=en_US,TAGS=@en_US",
+    "test:pt": "npm test -- --env language=pt_BR,TAGS=@pt_BR"
   },
   "repository": {
     "type": "git",
@@ -47,7 +48,7 @@
     "@babel/preset-env": "^7.4.5",
     "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
-    "cypress": "^6.3.0",
+    "cypress": "^7.5.0",
     "cypress-cucumber-preprocessor": "^4.0.0",
     "eslint": "^7.23.0",
     "eslint-plugin-cypress": "^2.11.2",

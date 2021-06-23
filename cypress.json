@@ -1,13 +1,14 @@
 {
   "env": {
     "environment": "qa",
+    "language": "en_US",
     "TAGS": "not @excluded"
   },
   "retries": {
     "runMode": 2,
     "openMode": 0
   },
-  "testFiles": "*/.feature",
+  "testFiles": "**/*.feature",
   "screenshotsFolder": "reports/screenshots",
   "videosFolder": "reports/videos",
   "video": false,
