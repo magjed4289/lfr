@@ -14,6 +14,8 @@
 const path = require('path');
 const fs = require('fs');
 const cucumber = require('cypress-cucumber-preprocessor').default;
+const LANG = require('../data/languages.json');
+const testValue = {};
 
 /**
  * @type {Cypress.PluginConfig}
@@ -22,8 +24,27 @@ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
   on('file:preprocessor', cucumber());
+
+
+  on('task', {
+    pushValue({ name, value }) {
+      //console.log(name, value)
+      testValue[name] = value
+      //console.log(testStore)
+      return true
+    },
+  });
+
+  on('task', {
+    getValue(name) {
+      return testValue[name]
+    },
+  });
+
   var newConfig = getConfigurationForEnvironment(config.env.environment);
   newConfig.env = newConfig.env || {};
+  newConfig.env.language = getLanguage(config, newConfig);
+
   return newConfig;
 }
 
@@ -37,4 +58,12 @@ function getConfigurationForEnvironment(environment) {
     throw new Error(`Unable to read configuration file for environment: ${environment}\nCaused by: ${err.message}`);
   }
   return readedConfig;
+}
+
+function getLanguage(config, environmentConfig) {
+  var language = config.env.language || environmentConfig.env.language;
+  if (!language && !LANG[language]) {
+    throw new Error(`Unable to find '${language}' and so no language has been provided`);
+  }
+  return language || LANG[language].language;
 }
