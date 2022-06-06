@@ -3,7 +3,7 @@ Feature: Forms
     Background:
         Given I am on the form page
 
-    @big-viewport @pt_BR @en_US
+    @big-viewport @pt_BR @en_US @this
     Scenario: Sending the form with a valid data
         When I submit the form with a valid data set
         Then I should be informed about my data being processed
@@ -16,7 +16,6 @@ Feature: Forms
         Examples:
             | year |
             | 2016 |
-            | 2026 |
             | 2006 |
             | 2015 |
             | 2005 |
